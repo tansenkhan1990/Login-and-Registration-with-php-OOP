@@ -1,7 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tanse
- * Date: 12/10/2017
- * Time: 6:32 PM
- */
+class Crud{
+    public $conn;
+    public function __construct()
+    {
+        $this->conn=new mysqli('localhost','root','','login_regitration');
+
+
+    }
+
+    public function insert($name,$email,$password,$address,$mobile)
+    {
+
+    }
+}
+$obj=new Crud();
+?>
