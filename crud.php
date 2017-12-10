@@ -13,12 +13,12 @@ class Crud{
        $sql = "INSERT INTO info (name, email,password,address,mobile)
 VALUES ('$name','$email','$password','$address','$mobile')";
        if ($this->conn->query($sql) === TRUE) {
-           echo "New record created successfully";
+           return true;
        } else {
-           echo "failed";
+           return false;
        }
    }
 }
 $obj=new Crud();
-$obj->insert('tansen','tansenkhan1990@gmail.com','bonn','bonn','0152');
+//$obj->insert('tansen','tansenkhan1990@gmail.com','bonn','bonn','0152');
 ?>
