@@ -8,11 +8,12 @@ class Crud{
 
     }
 
-   public function insert($name,$email,$password,$address,$mobile)
+   public function insert($name,$email,$password,$mobile)
    {
-       $sql = "INSERT INTO info (name, email,password,address,mobile)
-VALUES ('$name','$email','$password','$address','$mobile')";
+       $sql = "INSERT INTO info (name, email,password,mobile)
+VALUES ('$name','$email','$password','$mobile')";
        if ($this->conn->query($sql) === TRUE) {
+           //echo 'insert';
            return true;
        } else {
            return false;
@@ -20,5 +21,5 @@ VALUES ('$name','$email','$password','$address','$mobile')";
    }
 }
 $obj=new Crud();
-//$obj->insert('tansen','tansenkhan1990@gmail.com','bonn','bonn','0152');
+//$obj->insert('tansen','tansenkhan1990@gmail.com','bonn','0152');
 ?>
