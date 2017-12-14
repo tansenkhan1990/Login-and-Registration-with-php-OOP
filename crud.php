@@ -20,8 +20,13 @@ VALUES ('$name','$email','$password','$mobile')";
        $this->conn->query($sql);
        $check2="select * from info";
        $this->conn->query($check2);
-       $b=mysqli_affected_rows($this->conn);
-       echo $b;
+       if($a==$b)
+       {
+           return false;
+       }
+       else{
+           return true;
+       }
    }
 }
 $obj=new Crud();
