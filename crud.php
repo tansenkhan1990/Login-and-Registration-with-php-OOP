@@ -31,5 +31,5 @@ VALUES ('$name','$email','$password','$mobile')";
    }
 }
 $obj=new Crud();
-$obj->insert('tansen','tansenkhan1990@gmail.com','bonn','0152');
+
 ?>
