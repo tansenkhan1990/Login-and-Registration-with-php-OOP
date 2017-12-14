@@ -4,15 +4,16 @@
 <?php
 include 'crud.php';
 include 'navbar.php';
-if(isset($_REQUEST['signup']))
-{
-extract($_REQUEST);
-if ($obj->insert($name, $email, $password, $mobile)) {
-    $mess = "account create successfully";
-}
-else{
-    $mess="faild to create account";
-}
+if(isset($_REQUEST['signup'])) {
+    extract($_REQUEST);
+    if ($obj->insert($name, $email, $password, $mobile)) {
+        $mess = "account create successfully";
+    } else {
+        $mess = "faild to create account";
+    }
+
+
+
 ?>
 
 
@@ -33,10 +34,25 @@ else{
                 <strong><?php
                     echo $mess;
                     }
-                ?>
+                    ?>
                 </strong>
-        </div></center>
+            </div></center>
 
+        <?php
+        if(isset($_REQUEST['log']))
+        {
+
+        extract($_REQUEST);
+        if ($obj->login($email,$password))
+        {
+            session_start();
+            $_SESSION['email']=$email;
+            $_SESSION['password']=$password;
+            header("Location: profile.php");
+        }
+
+        }
+        ?>
         <div class="col-md-6"><form class="form-horizontal" action="index.php">
 
                 <div class="form-group">
@@ -74,18 +90,18 @@ else{
                 </div>
             </form></div>
 
-        <div class="col-md-6"><form>
+        <div class="col-md-6"><form action="index.php">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" name="log" class="btn btn-primary">Login</button>
             </form></div>
     </div>
 

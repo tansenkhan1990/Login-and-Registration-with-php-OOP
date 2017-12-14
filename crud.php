@@ -29,6 +29,19 @@ VALUES ('$name','$email','$password','$mobile')";
            return true;
        }
    }
+   public function login($email,$password)
+   {
+       $sql="select * from info WHERE email='$email' AND password='$password'";
+       $result=  $this->conn->query($sql);
+       $rowcount=mysqli_num_rows($result);
+       if ($rowcount==1)
+       {
+           return true;
+       }
+       else{
+           return false;
+       }
+   }
 }
 $obj=new Crud();
 
