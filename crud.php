@@ -13,13 +13,14 @@ class Crud{
        $check="select * from info";
        $this->conn->query($check);
        $a=mysqli_affected_rows($this->conn);
-       echo $a."<br>";
+
        $sql = "INSERT INTO info (name, email,password,mobile)
 VALUES ('$name','$email','$password','$mobile')";
 
        $this->conn->query($sql);
        $check2="select * from info";
        $this->conn->query($check2);
+       $b=mysqli_affected_rows($this->conn);
        if($a==$b)
        {
            return false;
