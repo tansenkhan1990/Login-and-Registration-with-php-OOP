@@ -29,6 +29,16 @@ VALUES ('$name','$email','$password','$mobile')";
            return true;
        }
    }
+
+   public function Read($email)
+   {
+       $sql="select * from info";
+       $result=  $this->conn->query($sql);
+       $res=$result->fetch_all(MYSQLI_ASSOC);
+       return $res;
+
+   }
+
    public function login($email,$password)
    {
        $sql="select * from info WHERE email='$email' AND password='$password'";
