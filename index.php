@@ -46,8 +46,8 @@ if(isset($_REQUEST['signup'])) {
         if ($obj->login($email,$password))
         {
             session_start();
+
             $_SESSION['email']=$email;
-            $_SESSION['password']=$password;
             header("Location: profile.php");
         }
 
