@@ -30,13 +30,13 @@ VALUES ('$name','$email','$password','$mobile')";
        }
    }
 
-   public function update($name,$mobile,$email)
+   public function update($name,$email,$mobile,$password,$id)
    {
-       $em=$email;
+
        $check="select * from info";
        $this->conn->query($check);
        $a=mysqli_affected_rows($this->conn);
-       $sql="update info set name='$name',mobile='$mobile',email='$email' WHERE email='$em'";
+       $sql="update info set name='$name',mobile='$mobile',email='$email',password='$password' WHERE id='$id'";
        $this->conn->query($sql);
        $b=mysqli_affected_rows($this->conn);
        if($a==$b)
