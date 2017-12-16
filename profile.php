@@ -37,7 +37,7 @@ else {
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" ><span class="glyphicon glyphicon-user"></span>
+                    <li><a href="#" >
                             <div data-toggle="modal" data-target="#myModal">Update profile</div>
                         </a></li>
                     <li><a href="signout.php"> singout</a></li>
@@ -82,9 +82,14 @@ else {
                     </div>
                     <div class="modal-body">
 
-                        <form action="#">
+                        <form action="profile.php">
                             <div class="form-group">
                                 <div class="form-group">
+                                    <label for="email">id:</label>
+                                    <input type="text" class="form-control" value="<?php echo $id;?>" disabled>
+                                </div>
+                                <div class="form-group">
+
                                     <label for="email">name:</label>
                                     <input type="text" class="form-control" value="<?php echo $name;?>" id="email">
                                 </div>
@@ -100,13 +105,13 @@ else {
                                 <input type="text" class="form-control" value="<?php echo $mobile;?>" id="email">
                             </div>
 
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" name="up" class="btn btn-primary">Submit</button>
                         </form>
 
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
 
@@ -119,4 +124,14 @@ else {
     }
 }
 
+if(isset($_REQUEST['up'])) {
+    extract($_REQUEST);
+    if ($obj->update($name,$email,$mobile,$password,$id))
+    {
+        echo "success";
+    }
+    else{
+        echo "faild";
+    }
+}
 ?>
