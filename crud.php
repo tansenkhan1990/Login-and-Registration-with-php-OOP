@@ -30,6 +30,24 @@ VALUES ('$name','$email','$password','$mobile')";
        }
    }
 
+   public function update($name,$mobile,$email)
+   {
+       $em=$email;
+       $check="select * from info";
+       $this->conn->query($check);
+       $a=mysqli_affected_rows($this->conn);
+       $sql="update info set name='$name',mobile='$mobile',email='$email' WHERE email='$em'";
+       $this->conn->query($sql);
+       $b=mysqli_affected_rows($this->conn);
+       if($a==$b)
+       {
+           return false;
+       }
+       else{
+           return true;
+       }
+
+   }
    public function Read($email)
    {
        $sql="select * from info";
