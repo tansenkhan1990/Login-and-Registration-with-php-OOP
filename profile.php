@@ -37,7 +37,9 @@ else {
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
+                    <li><a href="#" ><span class="glyphicon glyphicon-user"></span>
+                            <div data-toggle="modal" data-target="#myModal">Update profile</div>
+                        </a></li>
                     <li><a href="signout.php"> singout</a></li>
                 </ul>
             </div>
@@ -68,6 +70,50 @@ else {
 
         </body>
         </html>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="email">name:</label>
+                                    <input type="text" class="form-control" value="<?php echo $name;?>" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">new password:</label>
+                                    <input type="password" value="<?php echo $password;?>" class="form-control" id="email">
+                                </div>
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" id="email" value="<?php echo $email;?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Mobile:</label>
+                                <input type="text" class="form-control" value="<?php echo $mobile;?>" id="email">
+                            </div>
+
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
 
         <?php
     }
