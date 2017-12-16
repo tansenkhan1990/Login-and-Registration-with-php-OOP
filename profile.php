@@ -38,7 +38,7 @@ else {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
-                    <li><a href="singnout.php"> singout</a></li>
+                    <li><a href="signout.php"> singout</a></li>
                 </ul>
             </div>
         </nav>
