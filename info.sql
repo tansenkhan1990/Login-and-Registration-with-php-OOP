@@ -41,7 +41,7 @@ CREATE TABLE `info` (
 --
 
 INSERT INTO `info` (`id`, `name`, `email`, `password`, `mobile`) VALUES
-(44, 'tansen khan', 'tansenkhan1990@gmail.com', '123456', '15238457924');
+(44, 'tansen khan', 'tansenkhan@gmail.com', '123456', '10289389437');
 
 --
 -- Indexes for dumped tables
