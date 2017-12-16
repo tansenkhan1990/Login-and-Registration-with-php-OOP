@@ -12,6 +12,8 @@ else {
     foreach ($read as $re) {
         extract($re);
 
+        $GLOBALS['id']=$id;
+
         ?>
 
         <!DOCTYPE html>
@@ -83,26 +85,23 @@ else {
                     <div class="modal-body">
 
                         <form action="profile.php">
+
                             <div class="form-group">
-                                <div class="form-group">
-                                    <label for="email">id:</label>
-                                    <input type="text" class="form-control" value="<?php echo $id;?>" disabled>
-                                </div>
                                 <div class="form-group">
 
                                     <label for="email">name:</label>
-                                    <input type="text" class="form-control" value="<?php echo $name;?>" id="email">
+                                    <input type="text" name="name" class="form-control" value="<?php echo $name;?>" id="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">new password:</label>
-                                    <input type="password" value="<?php echo $password;?>" class="form-control" id="email">
+                                    <input type="password" name="password" value="<?php echo $password;?>" class="form-control" id="email">
                                 </div>
                                 <label for="email">Email address:</label>
-                                <input type="email" class="form-control" id="email" value="<?php echo $email;?>">
+                                <input type="email" name="email" class="form-control" id="email" value="<?php echo $email;?>">
                             </div>
                             <div class="form-group">
                                 <label for="email">Mobile:</label>
-                                <input type="text" class="form-control" value="<?php echo $mobile;?>" id="email">
+                                <input type="text" name="mobile" class="form-control" value="<?php echo $mobile;?>" id="email">
                             </div>
 
                             <button type="submit" name="up" class="btn btn-primary">Submit</button>
@@ -122,16 +121,11 @@ else {
 
         <?php
     }
-}
 
+}
 if(isset($_REQUEST['up'])) {
     extract($_REQUEST);
-    if ($obj->update($name,$email,$mobile,$password,$id))
-    {
-        echo "success";
-    }
-    else{
-        echo "faild";
-    }
+    $obj->update($name,$email,$mobile,$password,$GLOBALS['id']);
 }
+
 ?>
